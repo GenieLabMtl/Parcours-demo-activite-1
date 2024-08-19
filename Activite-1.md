@@ -15,7 +15,7 @@ count = 0
 ```
 
 ## Étape 2
-Nous allons incrémenter la ``||variables:Variables||`` quand le bouton B est pressé. 
+Nous allons incrémenter la ``||variables:compteur||`` quand le bouton B est pressé. 
 1. Trouver le bloc ``||Input:Lorsque de le bouton A est pressé||`` dans la section ``||Input:Entrée||`` et le glisser n'importe où dans la surface de programmation.
 2. Changer Le ``||Input:A||`` en ``||Input:B||``.
 
