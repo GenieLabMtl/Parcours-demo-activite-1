@@ -4,8 +4,8 @@ Dans cette activité, tu vas programmer le microbit pour aider le genieman à co
 Pour commencer, clique sur suivant.
 ## Étape 1
 Commençons par **créer une variable**.
-Aller dans la section ``||variables:Variables||`` et créer la variable "emoji".
-Ensuite, glisser le bloc ``||variables:définir||`` dans le crochet ``||basic:au démarrage||``
+Aller dans la section ``||variables:Variables||`` et créer la variable ``||variables:emoji||``.
+Ensuite, glisser le bloc ``||variables:définir 'emoji' à 0||`` dans le crochet ``||basic:au démarrage||``
 
 ```blocks
 let emoji = 0
@@ -13,7 +13,7 @@ emoji = 0
 ```
 
 ## Étape 2
-Nous allons incrémenter la ``||variables:emoji||`` quand le bouton B est pressé.
+Nous allons incrémenter la variable ``||variables:emoji||`` quand le bouton B est pressé.
 1. Trouver le bloc ``||Input:Lorsque de le bouton A est pressé||`` dans la section ``||Input:Entrée||`` et le glisser n'importe où dans la surface de programmation.
 2. Changer Le ``||Input:A||`` en ``||Input:B||``.
 
@@ -128,5 +128,47 @@ input.onButtonPressed(Button.B, function () {
 
 ## Étape 7
 Pour que l'affichage du visage change quand on appuis sur ``||Input:A||`` ou ``||Input:B||``,
-glisse ``||logic:'0' = '0'||`` dans ``||logic:si <vrai> sinon||`` à la place du ``||logic:<vrai>||``
+glisse ``||logic:'0' = '0'||`` dans ``||logic:si <vrai> sinon||`` à la place du ``||logic:<vrai>||``.
+Répéter cette démarche pour chaque ``||logic:sinon <vrai>||``.
+Remplacer tout les permier ``||logic:'0'||`` du bloc ``||logic:'0' = '0'||`` par la variable ``||variables:emoji||``.
+Changer le deuxième ``||logic:'0'||`` du premier ``||logic:sinon||`` par un ``||logic:'1'||``.
+Le suivant par un ``||logic:'2'||``, le troisième par un ``||logic:'3'||`` et le dernier par un ``||logic:'4'||``.
+
+```blocks
+input.onButtonPressed(Button.A, function () {
+    if (emoji == 0) {
+        emoji = 4
+    } else {
+        emoji += -1
+    }
+})
+input.onButtonPressed(Button.B, function () {
+    if (emoji == 4) {
+        emoji = 0
+    } else {
+        emoji += 1
+    }
+})
+let emoji = 0
+emoji = 0
+basic.forever(function () {
+    if (emoji == 0) {
+        basic.showIcon(IconNames.Happy)
+    } else if (emoji == 1) {
+        basic.showIcon(IconNames.Sad)
+    } else if (emoji == 2) {
+        basic.showIcon(IconNames.Confused)
+    } else if (emoji == 3) {
+        basic.showIcon(IconNames.Asleep)
+    } else if (emoji == 4) {
+        basic.showIcon(IconNames.Surprised)
+    }
+})
+```
+
+## Étape 8
+c'est fini. quand tu appuis sur A ou B tu changes la valeur de la variable ``||variables:emoji||``.
+En fonction de la valeur de ``||variables:emoji||`` un visage différent sera affiché.
+Par exemple si ``||variables:emoji||`` est égale à 1, le visage affiché sera le triste dans mon exemple. 
+
 
