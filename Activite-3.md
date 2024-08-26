@@ -1,7 +1,7 @@
 # Activite-3
 ##Objectif @showdialog
-Dans cette Activité, nous allons programmer un minijeu d'esquive d'astéroides.
-Tu va pouvoir controler un vaiseau spaciale et esquiver des astéroides.
+Dans cette Activité, nous allons programmer un minijeu d'esquive d'astéroïdes.
+Tu va pouvoir controler un vaiseau spaciale et esquiver des astéroïdes.
 Codé par tes propres mains.
 
 
@@ -43,12 +43,12 @@ input.onButtonPressed(Button.B, function () {
 
 ## Étape 3
 Maintenant que nous avons le joueur fonctionnel, nous allons programmer les astéroïdes.
-Le mur d'astéroides sera initialisé en haut du microbit avec un espace pour que le vaiseau puisse passer.
+Le mur d'astéroïdes sera initialisé en haut du microbit avec un espace pour que le vaiseau puisse passer.
 Pour ce faire, Commençons par déclarer 4 nouvelles variables nommées ``||variables:wall1||``, ``||variables:wall2||``, ``||variables:wall3||`` et ``||variables:wall4||``.
 Créé une autre ``||variables:variable||`` nommé ``||variables:random||``.
 Ensuite, créons une fonction en cliquant sur la section ``||functions:fonction||`` puis créer une fonction, nommée la **defineWall** et cliquer sur terminer.
 Une fonction te permet d'écrire un groupe de lignes de code une seule fois, et ensuite tu peux les utiliser encore et encore en appelant simplement le nom de la fonction.
-Dans notre cas nous allons appeler la fonction quand nous voudrons faire apparaitre un nouveau mur d'astéroides. 
+Dans notre cas nous allons appeler la fonction quand nous voudrons faire apparaitre un nouveau mur d'astéroïdes. 
 
 ## Étape 4 
 Nous voulons un trou dans le mur mais nous ne voulons pas qu'il soit tout le temps au meme endroit.
@@ -123,16 +123,16 @@ function defineWall () {
 ```
 
 ## Étape 6
-Nous allons initialiser les coordonnées des astéroides. l'axe X est l'axe horizontal, sa position peut allé de **0** à **4**, **0** étant la led la plus a gauche du microbit et **4** la plus à droite.
+Nous allons initialiser les coordonnées des astéroïdes. l'axe X est l'axe horizontal, sa position peut allé de **0** à **4**, **0** étant la led la plus a gauche du microbit et **4** la plus à droite.
 L'axe Y est l'axe vertical, sa position peut allé de **0** à **4**, **0** étant la led la plus haute du microbit et **4** en bs du microbit.
 La variable ``||variables:random||`` permet de définir la position du trou de manière aléatoire.
-Comme nous voulons que les astéroides apparaissent en haut du microbit, changer la valeur **Y** de tout les ``||game:créer un sprite à x:2 y:2||`` de la fonction ``||functions:defineWall||`` à **0**.
+Comme nous voulons que les astéroïdes apparaissent en haut du microbit, changer la valeur **Y** de tout les ``||game:créer un sprite à x:2 y:2||`` de la fonction ``||functions:defineWall||`` à **0**.
 Dans le crochet ``||logic:si random = 0||``, remplacer le premier **X : 0** par **1**, le deuxième par **2**, le troisième par **3** et le quatrième par **4**.
 Dans le crochet ``||logic:si random = 1||``, remplacer le premier **X : 0** par **0**, le deuxième par **2**, le troisième par **3** et le quatrième par **4**.
 Dans le crochet ``||logic:si random = 2||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **3** et le quatrième par **4**.
 Dans le crochet ``||logic:si random = 3||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **2** et le quatrième par **4**.
 Dans le crochet ``||logic:si random = 4||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **2** et le quatrième par **3**.
-Le mur d'astéroides est maintenant pres. 
+Le mur d'astéroïdes est maintenant pres. 
 
 ```blocks
 function defineWall () {
@@ -168,9 +168,9 @@ function defineWall () {
 ```
 
 ## Étape 7
-Il faut maintenant exécuter la fonction defineWall au démarrage pour que les astéroides s'affiche.
+Il faut maintenant exécuter la fonction defineWall au démarrage pour que les astéroïdes s'affiche.
 Dans la section ``||functions:fonctions||``, glisser ``||functions:appel defineWall||`` dans le crochet ``||basic:au démarrage||``.
-Les astéroides apparaissent mais ne descendent pas vers le joueur.
+Les astéroïdes apparaissent mais ne descendent pas vers le joueur.
 Dans la section ``||functions:fonctions||``, cliquer sur **créer une fonction** et nommer la **deplacement**
 Dans la section ``||game:jeu||``, glisser et déposer ``||game:sprite modifie X de 1||`` dans le crochet de la fonction ``||functions:deplacement||``
 Dupliquer le bloc ``||game:sprite modifie X de 1||`` pour l'avoir 4 fois dans la fonction ``||functions:deplacement||``.
@@ -179,7 +179,7 @@ Glisser la variable ``||variables:wall2||`` à la place de sprite dans le deuxi�
 Glisser la variable ``||variables:wall3||`` à la place de sprite dans le troisième bloc de la fonction ``||functions:deplacement||``.
 Glisser la variable ``||variables:wall4||`` à la place de sprite dans le quatrième bloc de la fonction ``||functions:deplacement||``.
 Changer les ``||game:X||`` pour ``||game:Y||``.
-À chaque appel de la fonction ``||functions:deplacement||`` les astéroides descendront de 1  vers le joueur.
+À chaque appel de la fonction ``||functions:deplacement||`` les astéroïdes descendront de 1  vers le joueur.
 
 ```blocks
 let wall1: game.LedSprite = null
@@ -215,7 +215,7 @@ basic.forever(function () {
 ```
 
 ## Étape 9 
-Nous allons maintenant créer la troisième et dernière fonction pour supprimer les astéroides quand ils seront arrivés au niveau du joueur.
+Nous allons maintenant créer la troisième et dernière fonction pour supprimer les astéroïdes quand ils seront arrivés au niveau du joueur.
 Créer une fonction et nommer la ``||functions:deleteWall||``. 
 Glisser ``||game:supprimer sprite||`` **4** fois dans la fonction ``||functions:deleteWall||``.
 Remplacer le premier ``||variables:sprite||`` par ``||variables:wall1||`` .
@@ -240,7 +240,16 @@ Glisser à nouveau un bloc ``||logic:< > ou < >||`` dans chaque espace ``||logic
 Trouver dans la section ``||game:jeu||`` le bloc ``||game:sprite touche < >||`` et glisser le dans les **4** espaces ``||logic:< >||`` du bloc ``||logic:< < > ou < > > ou < < > ou < > >||``.
 Changer ``||variables:sprite||`` dans les blocs ``||game:sprite touche < >||`` respectivement pour ``||variables:wall1||``, ``||variables:wall2||``, ``||variables:wall3||`` et ``||variables:wall4||``.
 Ajouter la variable ``||variables:joueur||`` dans ``||game:< >||`` des **4** blocs ``||game:sprite touche < >||``.
-Trouver dans la ``||functions:fonctions||`` le bloc appel deleteWall et glisser le dans le premier crochet ``||logic:si <vrai> alors||``
-Explication du code : si les asteroides ``||variable:wall1||``, ``||variable:wall2||``, ``||variable:wall3||`` et ``||variable:wall4||`` touche le joueur ``||variable:joueur||``
+Trouver dans la ``||functions:fonctions||`` le bloc appel ``||functions:deleteWall||`` et glisser le dans le premier crochet ``||logic:si <vrai> alors||``
+Explication du code : si les astéroïdes ``||variable:wall1||``, ``||variable:wall2||``, ``||variable:wall3||`` et ``||variable:wall4||`` touche le joueur ``||variable:joueur||``, alors la fonction ``||functions:deleteWall||`` est appelé et supprimera les astéroïdes.
+
+```blocks
+function deleteWall () {
+    wall1.delete()
+    wall2.delete()
+    wall3.delete()
+    wall4.delete()
+}
+```
 
 
