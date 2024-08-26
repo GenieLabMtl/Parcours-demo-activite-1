@@ -127,11 +127,11 @@ Nous allons initialiser les coordonnées des astéroides. l'axe X est l'axe hori
 L'axe Y est l'axe vertical, sa position peut allé de **0** à **4**, **0** étant la led la plus haute du microbit et **4** en bs du microbit.
 La variable ``||variables:random||`` permet de définir la position du trou de manière aléatoire.
 Comme nous voulons que les astéroides apparaissent en haut du microbit, changer la valeur **Y** de tout les ``||game:créer un sprite à x:2 y:2||`` de la fonction ``||functions:defineWall||`` à **0**.
-Dans le crochet ``||logic:si random = 0||``, remplacer le permier **X : 0** par **1**, le deuxième par **2**, le troisième par **3** et le quatrième par **4**.
-Dans le crochet ``||logic:si random = 1||``, remplacer le permier **X : 0** par **0**, le deuxième par **2**, le troisième par **3** et le quatrième par **4**.
-Dans le crochet ``||logic:si random = 2||``, remplacer le permier **X : 0** par **0**, le deuxième par **1**, le troisième par **3** et le quatrième par **4**.
-Dans le crochet ``||logic:si random = 3||``, remplacer le permier **X : 0** par **0**, le deuxième par **1**, le troisième par **2** et le quatrième par **4**.
-Dans le crochet ``||logic:si random = 4||``, remplacer le permier **X : 0** par **0**, le deuxième par **1**, le troisième par **2** et le quatrième par **3**.
+Dans le crochet ``||logic:si random = 0||``, remplacer le premier **X : 0** par **1**, le deuxième par **2**, le troisième par **3** et le quatrième par **4**.
+Dans le crochet ``||logic:si random = 1||``, remplacer le premier **X : 0** par **0**, le deuxième par **2**, le troisième par **3** et le quatrième par **4**.
+Dans le crochet ``||logic:si random = 2||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **3** et le quatrième par **4**.
+Dans le crochet ``||logic:si random = 3||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **2** et le quatrième par **4**.
+Dans le crochet ``||logic:si random = 4||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **2** et le quatrième par **3**.
 Le mur d'astéroides est maintenant pres. 
 
 ```blocks
@@ -178,6 +178,7 @@ Glisser la variable ``||variables:wall1||`` à la place de sprite dans le premie
 Glisser la variable ``||variables:wall2||`` à la place de sprite dans le deuxième bloc de la fonction ``||functions:deplacement||``.
 Glisser la variable ``||variables:wall3||`` à la place de sprite dans le troisième bloc de la fonction ``||functions:deplacement||``.
 Glisser la variable ``||variables:wall4||`` à la place de sprite dans le quatrième bloc de la fonction ``||functions:deplacement||``.
+Changer les ``||game:X||`` pour ``||game:Y||``.
 À chaque appel de la fonction ``||functions:deplacement||`` les astéroides descendront de 1  vers le joueur.
 
 ```blocks
@@ -212,5 +213,34 @@ basic.forever(function () {
 })
 
 ```
+
+## Étape 9 
+Nous allons maintenant créer la troisième et dernière fonction pour supprimer les astéroides quand ils seront arrivés au niveau du joueur.
+Créer une fonction et nommer la ``||functions:deleteWall||``. 
+Glisser ``||game:supprimer sprite||`` **4** fois dans la fonction ``||functions:deleteWall||``.
+Remplacer le premier ``||variables:sprite||`` par ``||variables:wall1||`` .
+Remplacer le deuxième ``||variables:sprite||`` par ``||variables:wall2||``.
+Remplacer le troisième ``||variables:sprite||`` par ``||variables:wall3||``.
+Remplacer le quatrième ``||variables:sprite||`` par ``||variables:wall4||``.
+
+```blocks
+function deleteWall () {
+    wall1.delete()
+    wall2.delete()
+    wall3.delete()
+    wall4.delete()
+}
+```
+
+## Étape 10
+Nous allons maintenant finir la boucle de jeu.
+Glisser le bloc ``||logic:si <vrai> alors sinon||`` dans le crochet ``||basic:toujours||`` sous ``||functions:appel deplacement||``.
+Dans la section ``||logic:logique||``, trouver ``||logic:< > ou < >||`` et glisser le à la place de ``||logic:<vrai>||``.
+Glisser à nouveau un bloc ``||logic:< > ou < >||`` dans chaque espace ``||logic:< >||`` du bloc ``||logic:< > ou < >||``.
+Trouver dans la section ``||game:jeu||`` le bloc ``||game:sprite touche < >||`` et glisser le dans les **4** espaces ``||logic:< >||`` du bloc ``||logic:< < > ou < > > ou < < > ou < > >||``.
+Changer ``||variables:sprite||`` dans les blocs ``||game:sprite touche < >||`` respectivement pour ``||variables:wall1||``, ``||variables:wall2||``, ``||variables:wall3||`` et ``||variables:wall4||``.
+Ajouter la variable ``||variables:joueur||`` dans ``||game:< >||`` des **4** blocs ``||game:sprite touche < >||``.
+Trouver dans la ``||functions:fonctions||`` le bloc appel deleteWall et glisser le dans le premier crochet ``||logic:si <vrai> alors||``
+Explication du code : si les asteroides ``||variable:wall1||``, ``||variable:wall2||``, ``||variable:wall3||`` et ``||variable:wall4||`` touche le joueur ``||variable:joueur||``
 
 
