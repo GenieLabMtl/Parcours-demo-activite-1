@@ -1,15 +1,22 @@
 # Activite-3
 ## Objectif @showdialog
 Dans cette activité, nous allons programmer un mini-jeu d'esquive d'astéroïdes.
+
 Tu vas pouvoir contrôler un vaisseau spatiale et esquiver des astéroïdes.
+
 Codé par tes propres mains.
 
 ## Étape 1
 Nous allons commencer par créer notre joueur.
+
 Dans la section ``||variables:variables||`` cliquer sur créer une variable et nommé la **joueur**.
+
 Glisser ``||variables:définir joueur à 0 ||`` dans le crochet ``||basic:au démarrage||``.
+
 Dans la section  ``||game:jeu||``, glisser ``||game:créer un sprite à x:2 y:2||`` à la place de 0 dans ``||variables:définir joueur à 0 ||``.
+
 (Cliquer sur avancé pour afficher la section ``||game:jeu||`` et ``||functions:fonctions||``)
+
 Changer les valeurs **X** pour **2** et **Y** pour **4**.
 
 ```blocks
