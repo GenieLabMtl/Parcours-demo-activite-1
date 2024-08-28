@@ -9,10 +9,8 @@ Nous allons commencer par créer notre joueur.
 1. Dans la section ``||variables:variables||`` cliquer sur créer une variable et nommé la **joueur**.
 2. Glisser ``||variables:définir joueur à 0 ||`` dans le crochet ``||basic:au démarrage||``.
 3. Dans la section  ``||game:jeu||``, glisser ``||game:créer un sprite à x:2 y:2||`` à la place de 0 dans ``||variables:définir joueur à 0 ||``.
-
-(Cliquer sur avancé pour afficher la section ``||game:jeu||`` et ``||functions:fonctions||``)
-
 4. Changer les valeurs **X** pour **2** et **Y** pour **4**.
+(Cliquer sur avancé pour afficher la section ``||game:jeu||`` et ``||functions:fonctions||``)
 
 ```blocks
 let Joueur: game.LedSprite = null
@@ -57,7 +55,7 @@ Nous voulons un trou dans le mur mais nous ne voulons pas qu'il soit tout le tem
 4. Dans la section ``||logic:logique||`` selectionnées ``||logic:si <vrai> alors sinon||`` et glisser le sous ``||variables:définir random à ...||``.
 5. Cliquer **4** fois sur le **+** et cliquer sur le **-** du ``||logic:sinon||``.
 6. Remplacer le ``||logic:<vrai>||`` de ``||logic:si <vrai> alors||``  par ``||logic:0 = 0||`` trouvable dans la section ``||logic:logic||``
-7. Faite la meme chose pour les 4 autres vide de ``||logic:sinon si < > alors||``.
+7. Faite la meme chose pour les **4** autres vide de ``||logic:sinon si < > alors||``.
 8. Dans la section ``||variables:variables||`` trouver le bloc ``||variables:random||`` et glisser le dans tous les 0 de gauche des blocs ``||logic:0 = 0||`` que vous venez d'ajouter.
 9. Dans le premier, ``||logic:sinon si random = 0 alors||`` remplacer le **0** par **1**.
 10. Dans le deuxième, ``||logic:sinon si random = 0 alors||`` remplacer le **0** par **2**.
@@ -131,7 +129,7 @@ L'axe Y est l'axe vertical, sa position peut allé de **0** à **4**, **0** éta
 5. Dans le crochet ``||logic:si random = 2||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **3** et le quatrième par **4**.
 6. Dans le crochet ``||logic:si random = 3||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **2** et le quatrième par **4**.
 7. Dans le crochet ``||logic:si random = 4||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **2** et le quatrième par **3**.
-8. Le mur d'astéroïdes est maintenant pres, il ne reste plus qu'à le faire afficher.
+8. Le mur d'astéroïdes est maintenant pres, il ne reste plus qu'à l'afficher.
 
 ```blocks
 function defineWall () {
