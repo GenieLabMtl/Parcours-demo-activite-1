@@ -1,5 +1,5 @@
 # Activite-3
-##Objectif @showdialog
+## Objectif @showdialog
 Dans cette activité, nous allons programmer un mini-jeu d'esquive d'astéroïdes.
 Tu vas pouvoir contrôler un vaisseau spatiale et esquiver des astéroïdes.
 Codé par tes propres mains.
@@ -8,7 +8,8 @@ Codé par tes propres mains.
 Nous allons commencer par créer notre joueur.
 Dans la section ``||variables:variables||`` cliquer sur créer une variable et nommé la **joueur**.
 Glisser ``||variables:définir joueur à 0 ||`` dans le crochet ``||basic:au démarrage||``.
-Dans la section  ``||game:jeu||``, glisser ``||game:créer un sprite à x:0 y:0||`` à la place de 0 dans ``||variables:définir joueur à 0 ||``.
+Dans la section  ``||game:jeu||``, glisser ``||game:créer un sprite à x:2 y:2||`` à la place de 0 dans ``||variables:définir joueur à 0 ||``.
+(Cliquer sur avancé pour afficher la section ``||game:jeu||`` et ``||functions:fonctions||``)
 Changer les valeurs **X** pour **2** et **Y** pour **4**.
 
 ```blocks
@@ -16,10 +17,11 @@ let Joueur: game.LedSprite = null
 Joueur = game.createSprite(2, 4)
 ```
 
-##Étape 2
+## Étape 2
 Maintenant nous allons faire les déplacements du joueur.
 Pour ça, glisser ``||Input:lorsque de le bouton A est pressé||`` trouvable dans la section ``||Input:entrée||`` dans l'espace de programmation
 trouver dans la section ``||game:jeu||`` le bloc ``||game:sprite modifie de x : 1||`` et glisser le dans le crochet ``||Input:lorsque de le bouton A est pressé||``.
+Changer ``||variables:sprite||`` pour ``||variables:joueur||``.
 Changer la valeur **1** par **-1**
 Cliquer droit sur ``||Input:lorsque de le bouton A est pressé||`` et dupliquer le.
 Changer ``||Input:A||`` pour ``||Input:B||`` et **-1** pour **1**.
@@ -54,7 +56,7 @@ Dans la section ``||logic:logique||`` selectionnées ``||logic:si <vrai> alors s
 cliquer **4** fois sur le **+** et cliquer sur le **-** du ``||logic:sinon||``.
 Remplacer le ``||logic:<vrai>||`` de ``||logic:si <vrai> alors||``  par ``||logic:0 = 0||`` trouvable dans la section ``||logic:logic||``
 Faite la meme chose pour les 4 autres vide de ``||logic:sinon si < > alors||``.
-Dans la section ``||variables:variables||`` trouver le bloc``||variables:random||`` et glisser le dans tous les 0 de gauche des blocs ``||logic:0 = 0||`` que vous venez d'ajouter.
+Dans la section ``||variables:variables||`` trouver le bloc ``||variables:random||`` et glisser le dans tous les 0 de gauche des blocs ``||logic:0 = 0||`` que vous venez d'ajouter.
 Dans le premier, ``||logic:sinon si random = 0 alors||`` remplacer le **0** par **1**.
 Dans le deuxième, ``||logic:sinon si random = 0 alors||`` remplacer le **0** par **2**.
 Dans le troisième, ``||logic:sinon si random = 0 alors||`` remplacer le **0** par **3**.
@@ -127,7 +129,7 @@ Dans le crochet ``||logic:si random = 1||``, remplacer le premier **X : 0** par 
 Dans le crochet ``||logic:si random = 2||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **3** et le quatrième par **4**.
 Dans le crochet ``||logic:si random = 3||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **2** et le quatrième par **4**.
 Dans le crochet ``||logic:si random = 4||``, remplacer le premier **X : 0** par **0**, le deuxième par **1**, le troisième par **2** et le quatrième par **3**.
-Le mur d'astéroïdes est maintenant pres.
+Le mur d'astéroïdes est maintenant pres, il ne reste plus qu'à le faire afficher.
 
 ```blocks
 function defineWall () {
@@ -211,11 +213,11 @@ basic.forever(function () {
 ## Étape 9
 Nous allons maintenant créer la troisième et dernière fonction pour supprimer les astéroïdes quand ils seront arrivés au niveau du joueur.
 Créer une fonction et nommer la ``||functions:deleteWall||``.
-Glisser ``||game:supprimer sprite||`` **4** fois dans la fonction ``||functions:deleteWall||``.
-Remplacer le premier ``||variables:sprite||`` par ``||variables:wall1||`` .
-Remplacer le deuxième ``||variables:sprite||`` par ``||variables:wall2||``.
-Remplacer le troisième ``||variables:sprite||`` par ``||variables:wall3||``.
-Remplacer le quatrième ``||variables:sprite||`` par ``||variables:wall4||``.
+Glisser ``||game:supprimer this||`` **4** fois dans la fonction ``||functions:deleteWall||``.
+Remplacer le premier ``||variables:this||`` par ``||variables:wall1||`` .
+Remplacer le deuxième ``||variables:this||`` par ``||variables:wall2||``.
+Remplacer le troisième ``||variables:this||`` par ``||variables:wall3||``.
+Remplacer le quatrième ``||variables:this||`` par ``||variables:wall4||``.
 
 ```blocks
 let wall1: game.LedSprite = null
@@ -261,6 +263,7 @@ basic.forever(function () {
 
 ## Étape 11
 Nous allons faire boucler les astéroïdes si le joueur passe à travers.
+CLiquer sur le **+** du bloc ``||logic:si <vrai> alors||`` du crochet ``||basic:toujours||`` et sur le **-** du ``||logic:sinon||``
 Trouver dans la section ``||logic:logique||`` le bloc ``||logic:0 = 0||`` et glisser le dans l'espace vide ``||logic:sinon si < > alors||``.
 Dans la section ``||game:jeu||``, trouver le bloc ``||game:sprite x||`` et glisser dans le **0** de gauche de ``||logic:0 = 0||``.
 Changer ``||game:X||`` pour ``||game:Y||`` et le **0** de droite par 4.
@@ -321,11 +324,11 @@ basic.forever(function () {
 ## Étape 13
 Nous allons ajouter un peu de difficulté avec le temps pour avoir un peu de défi.
 Dans la section ``||logic:logique||``, trouver ``||logic:si <vrai> alors sinon||`` et glisser le dans le crochet ``||logic:sinon si wall1 y = 4 alors||``.
-Dans la section ``||logic:logique||``, trouver ``||logic:0 < 0||`` et glisser le dans l'espace vide du bloc ``||logic:si <vrai> alors sinon||``.
+Dans la section ``||logic:logique||``, trouver ``||logic:0 < 0||`` et glisser le dans l'espace vide du bloc ``||logic:si <vrai> alors||``.
 Dans la section ``||variables:variables||``, glisser ``||variables:temps||`` dans le **0** de gauche du bloc ``||logic:0 < 0||``.
 Changer le **0** de droite par **100**.
-Dans la section ``||variables:variables||``, glisser  ``||variables:définir temps à 0||`` dans le crochet  ``||logic:si temps < 100 alors||`` et changer 0 par 100.
-Dans la section ``||variables:variables||``, glisser ``||variables:modifier temps de 1||`` changer **1** par **-10**.
+Dans la section ``||variables:variables||``, glisser ``||variables:définir temps à 0||`` dans le crochet  ``||logic:si temps < 100 alors||`` et changer 0 par 100.
+Dans la section ``||variables:variables||``, glisser ``||variables:modifier temps de 1||`` dans le crochet ``||logic:sinon||``, changer **1** par **-10**.
 À chaque fois que les astéroïdes arrivent en bas du microbit, le temps entre chaque avancé des astéroïdes est réduit.
 
 ```blocks
